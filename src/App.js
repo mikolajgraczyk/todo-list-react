@@ -4,7 +4,6 @@ import Buttons from "./Buttons";
 import Section from "./Section";
 import Header from "./Header";
 import Container from "./Container";
-import "./index.css";
 
 const tasks = [
   {
