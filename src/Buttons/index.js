@@ -6,12 +6,15 @@ const Buttons = (props) => (
             {props.sorted === false ? "Sortuj od najstarszych" : "Sortuj od najnowszych"}
         </button>
 
-        <button className={`section__taskButtons--button ${props.tasks.length === 0 ? "hidden" : ""}`}>
+        <button
+            className={`section__taskButtons--button ${props.tasks.length === 0 ? "hidden" : ""}`}
+            onClick={props.toggleHideDone}
+        >
             {props.hideDone === true ? "Pokaż ukończone" : "Ukryj ukończone"}
         </button >
 
         <button className={`section__taskButtons--button ${props.tasks.length === 0 ? "hidden" : ""}`}
-        disabled={props.tasks.every(({ done }) => done)}>
+            disabled={props.tasks.every(({ done }) => done)}>
             Ukończ wszystkie
         </button >
     </div>

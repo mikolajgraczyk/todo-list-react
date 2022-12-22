@@ -1,9 +1,11 @@
+import React, { useState } from "react";
 import Form from "./Form";
 import List from "./List";
 import Buttons from "./Buttons";
 import Section from "./Section";
 import Header from "./Header";
 import Container from "./Container";
+
 
 const tasks = [
   {
@@ -18,10 +20,20 @@ const tasks = [
   },
 ];
 
-const hideDone = false;
 let sorted = false;
 
 function App() {
+
+  const [hideDone, setHideDone] = useState(false);
+
+  const toggleHideDone = () => {
+    setHideDone(hideDone => !hideDone);
+  };
+
+  const toggleTaskDone = (id) => {
+
+  };
+
   return (
     <Container className="container">
       <Header title="Lista zadań" />
@@ -31,8 +43,18 @@ function App() {
       />
       <Section
         title="Lista zadań"
-        body={<List tasks={tasks} hideDone={hideDone} />}
-        extraHeaderContent={<Buttons tasks={tasks} hideDone={hideDone} sorted={sorted} />}
+        body={
+          <List
+            tasks={tasks}
+            hideDone={hideDone}
+          />}
+        extraHeaderContent={
+          <Buttons
+            tasks={tasks}
+            hideDone={hideDone}
+            sorted={sorted}
+            toggleHideDone={toggleHideDone}
+          />}
       />
     </Container>
   );
