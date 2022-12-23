@@ -1,7 +1,7 @@
 # Tasks lits
 
 # Description
-You're looking at a to-do-list created by newbie to practice JS and CSS in react. You cannot interact with the app yet.
+You're looking at a to-do-list created by newbie to practice JS and CSS in react. You can interact with it by adding your own tasks and manage them
 
 ![example](https://github.com/scudoo/ToDoList/blob/main/images/To%20do%20List%20xample.gif?raw=true)
 
