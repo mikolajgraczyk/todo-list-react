@@ -6,7 +6,7 @@
 
 .list__element {
     display: grid;
-    grid-template-columns: auto 1fr 1fr auto;
+    grid-template-columns: auto 2fr 1fr auto;
     grid-gap: 10px;
     align-items: center;
     padding: 20px;
@@ -15,7 +15,7 @@
 
 @media(max-width: 563px) {
     .list__element {
-        grid-template-columns: auto 7fr 6fr auto;
+        grid-template-columns: auto 5fr 7fr auto;
     }
 }
 
