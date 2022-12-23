@@ -1,4 +1,4 @@
-.section__taskButtons {
+.buttons {
     padding: 20px;
     margin: 0;
     display: flex;
@@ -7,23 +7,23 @@
 }
 
 @media(max-width: 767px) {
-    .section__taskButtons {
+    .buttons {
         flex-direction: column;
     }
 }
 
-.section__taskButtons--button {
+.buttons__button {
     border: none;
     background: none;
     color: teal;
     transition: 0.5s;
 }
 
-.section__taskButtons--button:hover {
+.buttons__button:hover {
     color: hsl(180, 100%, 35%);
 }
 
-.section__taskButtons--button:disabled {
+.buttons__button:disabled {
     color: gray;
 }
 
