@@ -1,6 +1,6 @@
 import "./style.css";
 
-const Tasks = ({ tasks, hideDone, toggleTaskDone, removeTask, }) => {
+const Tasks = ({ tasks, hideDone, toggleTaskDone, removeTask }) => {
     return (
         <ul className="list">
             {tasks.map(task => (
@@ -15,15 +15,11 @@ const Tasks = ({ tasks, hideDone, toggleTaskDone, removeTask, }) => {
                         {task.done ? "✔" : ""}
                     </button>
 
-                    <span
-                        className={task.done ? "list__element--done" : ""}
-                    >
+                    <span className={task.done ? "list__element--done" : ""}>
                         {task.content}
                     </span>
 
-                    <span
-                        className="list__time"
-                    >
+                    <span className="list__time">
                         Dodano o godzinie {task.time}
                     </span>
 

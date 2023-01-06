@@ -10,7 +10,9 @@ function App() {
 
   const [hideDone, setHideDone] = useState(false);
 
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
+
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 
   const hideDoneTasks = () => {
     setHideDone(hideDone => !hideDone);
@@ -33,18 +35,10 @@ function App() {
     setTasks(tasks => tasks.map(task => ({ ...task, done: true })));
   };
 
-  const addZero = (digit) => {
-    if (digit < 10) {
-      return `0${digit}`;
-    };
-    return digit;
-  };
-
   const timeTaskAdded = () => {
     const date = new Date();
-    const minute = addZero(date.getMinutes());
-    const hour = addZero(date.getHours());
-    return `${hour}:${minute}`;
+    const time = date.toLocaleTimeString(undefined, {hour: "2-digit", minute: "2-digit"});
+    return `${time}`;
   };
 
   const addNewTask = (content) => {
@@ -64,6 +58,8 @@ function App() {
     );
   };
 
+  // JSON.parse(localStorage.getItem("tasks"))
+
   return (
     <Container className="container">
       <Header title="Lista zadań" />
@@ -81,7 +77,6 @@ function App() {
             hideDone={hideDone}
             toggleTaskDone={toggleTaskDone}
             removeTask={removeTask}
-            timeTaskAdded={timeTaskAdded}
           />}
         extraHeaderContent={
           <Buttons
