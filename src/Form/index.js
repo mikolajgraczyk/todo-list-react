@@ -12,6 +12,7 @@ const Form = ({ addNewTask }) => {
             return;
         };
         addNewTask(trimmedNewTaskContent);
+        setTaskContent("");
     };
 
     const onChange = ({ target }) => {
