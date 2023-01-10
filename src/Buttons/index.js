@@ -1,23 +1,19 @@
-import "./style.css";
+import { ButtonsSection, Button } from "./styled";
 
-const Buttons = ({ tasks, hideDone, hideDoneTasks, doneAllTasks}) => {
+const Buttons = ({ tasks, hideDone, hideDoneTasks, doneAllTasks }) => {
     return (
-        <div className="buttons">
-            <button
-                className={`buttons__button ${tasks.length === 0 ? "hidden" : ""}`}
-                onClick={hideDoneTasks}
-            >
+        <ButtonsSection hidden={tasks.length === 0}>
+            <Button onClick={hideDoneTasks}>
                 {hideDone ? "Pokaż ukończone" : "Ukryj ukończone"}
-            </button >
+            </Button>
 
-            <button
-                className={`buttons__button ${tasks.length === 0 ? "hidden" : ""}`}
+            <Button
                 onClick={doneAllTasks}
                 disabled={tasks.every(({ done }) => done)}
             >
                 Ukończ wszystkie
-            </button >
-        </div>
+            </Button>
+        </ButtonsSection>
     );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Form from "./Form";
 import Tasks from "./Tasks";
 import Buttons from "./Buttons";
@@ -7,9 +7,10 @@ import Header from "./Header";
 import Container from "./Container";
 
 function App() {
+
   const [hideDone, setHideDone] = useState(false);
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
-  
+
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -38,7 +39,7 @@ function App() {
   const timeTaskAdded = () => {
     const date = new Date();
     const time = date.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" });
-    return `${time}`;
+    return `${ time } `;
   };
 
   const addNewTask = (content) => {
@@ -57,8 +58,6 @@ function App() {
     ]
     );
   };
-
-  // JSON.parse(localStorage.getItem("tasks"))
 
   return (
     <Container className="container">
