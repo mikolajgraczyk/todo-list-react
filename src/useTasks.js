@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 export const useTasks = () => {
-
     const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
 
     useEffect(() => {
@@ -9,12 +8,8 @@ export const useTasks = () => {
     }, [tasks]);
 
     const toggleTaskDone = (id) => {
-        setTasks(tasks => tasks.map(task => {
-            if (task.id === id) {
-                return { ...task, done: !task.done }
-            };
-            return task;
-        }));
+        setTasks(tasks => tasks.map(task => task.id === id ? { ...task, done: !task.done } : task));
+        
     };
 
     const removeTask = (id) => {
@@ -35,16 +30,17 @@ export const useTasks = () => {
             {
                 content,
                 done: false,
-                time: timeTaskAdded(),
+                time: getTimeTaskAdded(),
                 id: tasks.length === 0 ? 1 : tasks[tasks.length - 1].id + 1,
             },
         ]);
 
     };
 
-    const timeTaskAdded = () => {
+    const getTimeTaskAdded = () => {
         const date = new Date();
         const time = date.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" });
+        
         return `${time} `;
     };
 
