@@ -54,6 +54,7 @@ export const Button = styled.button`
 
         &:hover {
             background-color: hsl(120, 100%, 35%);
+            cursor: pointer;
         }
     `}
 
@@ -61,8 +62,9 @@ export const Button = styled.button`
         background-color: rgb(168, 0, 0);
         transition: 0.5s;
 
-        $:hover {
+        &:hover {
             background-color: hsl(0, 100%, 60%);
+            cursor: pointer;
         }
     `}
 `;
