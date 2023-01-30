@@ -1,13 +1,25 @@
 import React, { useState, useRef } from "react";
+import { nanoid } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
+import { addTask } from "../tasksSlice";
 import { FormSection, Input, Button } from "./styled";
 
-const Form = ({ addNewTask }) => {
+const Form = () => {
 
     const [newTaskContent, setTaskContent] = useState("");
-
     const inputRef = useRef(null);
+
+    const dispatch = useDispatch();
+
     const focusInput = () => {
         inputRef.current.focus();
+    };
+
+    const getTimeTaskAdded = () => {
+        const date = new Date();
+        const time = date.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" });
+        
+        return `${time} `;
     };
 
     const onFromSubmit = (event) => {
@@ -16,10 +28,18 @@ const Form = ({ addNewTask }) => {
         if (!trimmedNewTaskContent) {
             return;
         };
-        addNewTask(trimmedNewTaskContent);
+
+        dispatch(addTask({
+            content: trimmedNewTaskContent,
+            done: false,
+            time: getTimeTaskAdded(),
+            id: nanoid(),
+        }));
+
         setTaskContent("");
         focusInput();
     };
+
 
     const onChange = ({ target }) => {
         setTaskContent(newTaskContent => target.value);
