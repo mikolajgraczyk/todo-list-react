@@ -7,7 +7,7 @@ export const Container = styled.section`
 
 export const ContainerTop = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     border-bottom: 1px solid rgb(226, 226, 226);
 
     @media(max-width: 767px) {

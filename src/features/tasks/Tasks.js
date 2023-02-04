@@ -4,6 +4,7 @@ import Buttons from "./Buttons";
 import Section from "../../common/Section";
 import Header from "../../common/Header";
 import Container from "../../common/Container";
+import ExampleTasksButton from "./ExampleTasksButton";
 
 const Tasks = () => {
 
@@ -13,6 +14,7 @@ const Tasks = () => {
       <Section
         title="Dodaj zadanie"
         body={<Form />}
+        extraHeaderContent={<ExampleTasksButton />}
       />
       <Section
         title="Lista zadań"
