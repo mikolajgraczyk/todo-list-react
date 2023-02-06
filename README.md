@@ -3,7 +3,7 @@
 # Description
 You're looking at a to-do-list created by newbie to practice JS and CSS in react. You can interact with it by adding your own tasks and manage them
 
-![example](https://github.com/scudoo/ToDoList/blob/main/images/To%20do%20List%20xample.gif?raw=true)
+![example](src/demo.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
