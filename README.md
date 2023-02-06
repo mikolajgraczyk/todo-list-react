@@ -5,6 +5,13 @@ You're looking at a to-do-list created by newbie to practice JS and CSS in react
 
 ![example](src/demo.gif)
 
+# Technologies
+- React
+- JSX
+- styledComponencts
+- Redux
+- Redux Saga
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
