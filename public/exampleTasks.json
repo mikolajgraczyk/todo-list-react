@@ -2,13 +2,19 @@
     {
         "content": "Oznaczyć to zadanie jako ukończone",
         "done": false,
-        "time": "16:03 ",
+        "time": {
+            "hour": "16:03 ",
+            "day": "niedziela, 5 lutego "
+        },
         "id": "45tqTArtNgC5Us2iuc-gJ"
     },
     {
         "content": "Ukończyć wszystkie zadania",
         "done": false,
-        "time": "16:03 ",
+        "time": {
+            "hour": "16:03 ",
+            "day": "niedziela, 5 lutego "
+        },
         "id": "iYI2US2EL91axEWQPjhPZ"
     }
 ]

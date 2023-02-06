@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const ButtonsSection = styled.div`
+export const Wrapper = styled.div`
     padding: 20px;
     margin: 0;
     display: flex;

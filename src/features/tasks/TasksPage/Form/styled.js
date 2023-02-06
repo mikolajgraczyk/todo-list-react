@@ -11,12 +11,6 @@ export const FormSection = styled.form`
     }
 `;
 
-export const Input = styled.input`
-    padding: 10px;
-    border: 1px solid #eee;
-    border-radius: 5px;
-`;
-
 export const Button = styled.button`
     padding: 10px;
     background-color: teal;

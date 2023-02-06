@@ -1,10 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectTasksState, toggleTaskDone, removeTask } from "../tasksSlice";
-import { List, Item, Content, Time, Button } from "./styled";
+import { toggleTaskDone, removeTask, selectTasksByQuery, selectHideDone } from "../../tasksSlice";
+import { List, Item, Content, Time, Button, StyledLink } from "./styled";
+import searchQueryParamName from "../queryParameters/searchQueryParamName";
+import { useQueryParameter } from "../queryParameters/useQueryParameter";
 
 const TaskList = () => {
+    const query = useQueryParameter(searchQueryParamName);
 
-    const { tasks, hideDone } = useSelector(selectTasksState);
+    const tasks = useSelector(state => selectTasksByQuery(state, query));
+    const hideDone = useSelector(selectHideDone);
+
     const dispatch = useDispatch();
 
     return (
@@ -18,10 +23,12 @@ const TaskList = () => {
                         {task.done ? "✔" : ""}
                     </Button>
                     <Content done={task.done}>
-                        {task.content}
+                        <StyledLink to={`/zadania/${task.id}`}>
+                            {task.content}
+                        </StyledLink>
                     </Content>
                     <Time>
-                        Dodano o godzinie {task.time}
+                        Dodano o godzinie {task.time.hour}
                     </Time>
                     <Button remove onClick={() => dispatch(removeTask(task.id))}>
                         🗑

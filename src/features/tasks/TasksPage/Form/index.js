@@ -1,8 +1,9 @@
 import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
-import { addTask } from "../tasksSlice";
-import { FormSection, Input, Button } from "./styled";
+import { addTask } from "../../tasksSlice";
+import { FormSection, Button } from "./styled";
+import { Input } from "../Input/styled";
 
 const Form = () => {
     const [newTaskContent, setTaskContent] = useState("");
@@ -16,12 +17,20 @@ const Form = () => {
 
     const getTimeTaskAdded = () => {
         const date = new Date();
-        const time = date.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" });
-        
-        return `${time} `;
+        const hour = date.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+        const day = date.toLocaleDateString('pl', { weekday: 'long', month: 'long', day: 'numeric' });
+        return {
+            hour,
+            day,
+        };
     };
 
     const onFromSubmit = (event) => {
+        const {
+            hour,
+            day,
+        } = getTimeTaskAdded();
+
         event.preventDefault();
         const trimmedNewTaskContent = newTaskContent.trim()
         if (!trimmedNewTaskContent) {
@@ -31,7 +40,10 @@ const Form = () => {
         dispatch(addTask({
             content: trimmedNewTaskContent,
             done: false,
-            time: getTimeTaskAdded(),
+            time: {
+                hour: hour,
+                day: day,
+            },
             id: nanoid(),
         }));
 
@@ -41,7 +53,7 @@ const Form = () => {
 
 
     const onChange = ({ target }) => {
-        setTaskContent(newTaskContent => target.value);
+        setTaskContent(target.value);
     };
 
     return (
