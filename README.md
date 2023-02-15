@@ -3,6 +3,8 @@
 # Description
 You're looking at a to-do-list created by newbie to practice JS and CSS in react. You can interact with it by adding your own tasks and manage them
 
+# Demo
+https://mikolajgraczyk.github.io/todo-list-react/#/zadania
 ![example](src/demo.gif)
 
 # Technologies
