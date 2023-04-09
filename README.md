@@ -5,6 +5,7 @@ You're looking at a to-do-list created by newbie to practice JS and CSS in react
 
 # Demo
 https://mikolajgraczyk.github.io/todo-list-react/#/zadania
+
 ![example](src/demo.gif)
 
 # Technologies
